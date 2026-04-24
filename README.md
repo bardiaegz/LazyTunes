@@ -50,3 +50,12 @@ python3 music_player.py /path/to/your/folder
 | `-` | Volume down |
 | `=` | Volume up |
 | `q` | Quit |
+
+## TODO
+
+- [ ] Shuffle toggle (hotkey `r`)
+- [ ] Repeat current track (hotkey `l`)
+- [ ] Mute toggle (hotkey `m`)
+- [ ] Track list view — press a key to browse all songs, arrow keys to pick
+- [ ] Package as pip installable so users can just run `lazytunes`
+- [ ] Windows support
