@@ -2,6 +2,8 @@
 
 A small terminal music player, written in Python. The name is inspired by [LazyGit](https://github.com/jesseduffield/lazygit).
 
+<img width="479" height="535" alt="Screenshot 2026-04-25 at 02 34 11" src="https://github.com/user-attachments/assets/7feb9ec2-2d17-4aa0-8599-63806aa630f8" />
+
 ## About
 
 I wrote this during the internet blackout in Iran. a side project to keep myself busy while the connection was down.
