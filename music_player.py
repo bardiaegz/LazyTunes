@@ -8,6 +8,7 @@ import argparse
 import io
 from contextlib import redirect_stdout
 from pathlib import Path
+import random as _random
 
 try:
     import pygame
@@ -30,6 +31,80 @@ BLUE   = "\033[94m"
 
 # Music Player will only play songs with these extensions
 AUDIO_EXTS = {'.mp3', '.m4a', '.ogg', '.wav', '.flac', '.aac', '.aiff'}
+
+
+SPECIAL_ARTISTS = {
+    'nirvana': [
+        "It's okay to eat fish, 'cos they don't have any feelings",
+        "Too loud, don't care",
+    ],
+    'bad omens': [
+        "Headbang time",
+        "Enter the mosh pit",
+    ],
+    'soen': [
+        "The one and only who cared about the people of Iran",
+    ],
+}
+
+
+def match_special_artist(artist):
+    key = (artist or '').lower()
+    for band in SPECIAL_ARTISTS:
+        if band in key:
+            return band
+    return None
+
+
+def animate_special(band):
+    P, G, R = PINK, GREEN, RESET
+    bubble_text = _random.choice(SPECIAL_ARTISTS[band])
+    bubble_w = len(bubble_text) + 2
+    top = '.' + '-' * bubble_w + '.'
+    bot = "'" + '-' * (bubble_w // 2 - 1) + '+' + '-' * (bubble_w - bubble_w // 2 - 1) + "'"
+    frames = [
+        f"""
+        {top}
+        ( {bubble_text} )
+        {bot}
+                    |
+       {P}~~~~^~~~~{R}
+      {P}~~{R}( ^o^ ){P}~~{R}
+        {P}~{R}\\| |/{P}~{R}
+          | |
+         /   \\
+""",
+        f"""
+        {top}
+        ( {bubble_text} )
+        {bot}
+                    |
+       {P}~^~^~^~^~{R}
+      {P}~~{R}( >w< ){P}~~{R}
+        {P}~{R}\\| |/{P}~{R}
+          | |
+         /   \\
+""",
+        f"""
+        {top}
+        ( {bubble_text} )
+        {bot}
+                    o
+       {P}~~~~^~~~~{R}
+      {P}~~{R}( ^_^ ){P}~~{R}
+        {P}~{R}\\| |/{P}~{R}
+          | |
+         /   \\
+""",
+    ]
+    for _ in range(2):
+        for frame in frames:
+            os.system('clear')
+            sys.stdout.write(frame)
+            sys.stdout.flush()
+            time.sleep(0.35)
+    time.sleep(0.4)
+    os.system('clear')
 
 # Will print slowly with delay of 0.05 (default). Can change later when calling a function
 def slow_print(text, delay=0.05):
@@ -198,7 +273,7 @@ def parse_args():
     parser.add_argument(
         'folder',
         nargs='?',
-        default=str(Path.home() / 'Documents' / 'Music' / 'Bad Omens'),
+        default=str(Path.home() / 'Music'),
         help='Path to music folder (default: ~/Music)',
     )
     return parser.parse_args()
@@ -234,6 +309,9 @@ def main():
 
     artist, album, music_name, duration, cover_str, cover_lines = load_track(paths[track_n - 1])
     start_playback(paths[track_n - 1])
+    band = match_special_artist(artist)
+    if band:
+        animate_special(band)
     os.system('clear')
 
     last_tick = time.monotonic()
@@ -250,6 +328,9 @@ def main():
                 artist, album, music_name, duration, cover_str, cover_lines = load_track(paths[track_n - 1])
                 elapsed = 0
                 start_playback(paths[track_n - 1])
+                band = match_special_artist(artist)
+                if band:
+                    animate_special(band)
                 os.system('clear')
                 first = True
                 last_tick = time.monotonic()
@@ -291,6 +372,9 @@ def main():
                     start_playback(paths[track_n - 1])
                     if paused:
                         pause_playback()
+                    band = match_special_artist(artist)
+                    if band:
+                        animate_special(band)
                     os.system('clear')
                     first = True
                     last_tick = time.monotonic()
@@ -305,6 +389,9 @@ def main():
                     start_playback(paths[track_n - 1])
                     if paused:
                         pause_playback()
+                    band = match_special_artist(artist)
+                    if band:
+                        animate_special(band)
                     os.system('clear')
                     first = True
                     last_tick = time.monotonic()
