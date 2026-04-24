@@ -2,7 +2,7 @@
 
 A small terminal music player, written in Python. The name is inspired by [LazyGit](https://github.com/jesseduffield/lazygit).
 
-<img width="479" height="535" alt="Screenshot 2026-04-25 at 02 34 11" src="https://github.com/user-attachments/assets/7feb9ec2-2d17-4aa0-8599-63806aa630f8" />
+<img width="472" height="513" alt="Screenshot 2026-04-25 at 02 38 13" src="https://github.com/user-attachments/assets/33e393f1-cf5e-48ad-be3a-c9aba28cae32" />
 
 ## About
 
