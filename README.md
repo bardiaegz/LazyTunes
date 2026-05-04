@@ -8,7 +8,12 @@ A small terminal music player, written in Python. The name is inspired by [LazyG
 
 I wrote this during the internet blackout in Iran. a side project to keep myself busy while the connection was down.
 
-A friend pushed me, basically told me to chill, sit down, and just start coding (idk if I'm allowed to say their name, so I'll leave it at a big thank you ♥). Most of the code was written WITHOUT AI :) wanted this one to be all me fr. I hope you enjoy using it.
+A friend pushed me. told me to chill, sit down, and just start coding. So I did.
+
+Huge thanks to Lia for that push ♥
+Seriously, this wouldn’t exist without you.
+
+Most of the code was written WITHOUT AI :) wanted this one to be all me fr. I hope you enjoy using it.
 
 ## Requirements
 
